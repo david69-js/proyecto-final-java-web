@@ -16,6 +16,7 @@ public class Usuario {
 
     @NotNull
     @Email
+    @Column(unique = true)
     private String email;
 
     @NotNull
