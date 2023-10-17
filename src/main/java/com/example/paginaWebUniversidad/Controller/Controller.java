@@ -28,7 +28,7 @@ public class Controller {
 
     @GetMapping("/")
     public String Hello(){
-        return "Hllo";
+        return "Test Controller";
     }
 
     private static final org.slf4j.Logger logger = LoggerFactory.getLogger(Controller.class);
