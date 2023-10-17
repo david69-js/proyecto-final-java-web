@@ -38,18 +38,32 @@ public class Controller {
         cursoRepository.save(curso);
         return "Saved Curso";
     }
-
-    // Other mappings if needed
+    @GetMapping("/getCursos")
+    public List<Curso> getCursoRepository() {
+        return cursoRepository.findAll();
+    }
 
     @PostMapping("/saveAsignacion")
     public String saveAsignacion(@RequestBody Asignacion asignacion) {
         asignacionRepository.save(asignacion);
         return "Saved Asignacion";
     }
-
+    
+    @GetMapping("/getAsignaciones")
+    public List<Asignacion> getAsignacionRepository() {
+        return asignacionRepository.findAll();
+    }
+    
+   
+    
     @PostMapping("/saveUsuario")
     public String saveUsuario(@RequestBody Usuario usuario) {
         usuarioRepository.save(usuario);
         return "Saved Usuario";
+    }
+    
+    @GetMapping("/getUsuarios")
+    public List<Usuario> getUsuarios() {
+        return usuarioRepository.findAll();
     }
 }
