@@ -9,12 +9,11 @@ import com.example.paginaWebUniversidad.Repository.CursoRepository;
 import com.example.paginaWebUniversidad.Repository.UsuarioRepository;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Optional;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
 
 @RestController
@@ -44,6 +43,15 @@ public class Controller {
     public List<Curso> getCursoRepository() {
         return cursoRepository.findAll();
     }
+    @GetMapping("/getCurso/{id}")
+    public ResponseEntity<Curso> getCursoById(@PathVariable Long id) {
+        Optional<Curso> curso = cursoRepository.findById(id);
+        if (curso.isPresent()) {
+            return ResponseEntity.ok(curso.get());
+        } else {
+            return ResponseEntity.notFound().build();
+        }
+    }
 
     @PostMapping("/saveAsignacion")
     public String saveAsignacion(@RequestBody Asignacion asignacion) {
@@ -64,8 +72,19 @@ public class Controller {
         return "Saved Usuario";
     }
     
+    @GetMapping("/getUsuario/{id}")
+    public ResponseEntity<Usuario> getUserById(@PathVariable Long id) {
+        Optional<Usuario> usuario = usuarioRepository.findById(id);
+        if (usuario.isPresent()) {
+            return ResponseEntity.ok(usuario.get());
+        } else {
+            return ResponseEntity.notFound().build();
+        }
+    }
+    
     @GetMapping("/getUsuarios")
     public List<Usuario> getUsuarios() {
         return usuarioRepository.findAll();
     }
+    
 }
