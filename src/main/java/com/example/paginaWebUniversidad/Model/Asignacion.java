@@ -21,4 +21,32 @@ public class Asignacion {
     @JoinColumn(name = "cursoId", referencedColumnName = "id", insertable = false, updatable = false)
     private Curso curso;
 
+    public void setId(long id) {
+        this.id = id;
+    }
+
+    public long getId() {
+        return id;
+    }
+
+    
+    public void setCursoId(long cursoId) {
+        this.cursoId = cursoId;
+    }
+
+    public long getCursoId() {
+        return cursoId;
+    }
+
+    public void setUsuario(Usuario usuario) {
+        this.usuario = usuario;
+    }
+
+    public long getUsuarioId() {
+        return usuarioId;
+    }
+   
+    
+   
+
 }
