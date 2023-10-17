@@ -38,8 +38,8 @@ public class Asignacion {
         return cursoId;
     }
 
-    public void setUsuario(Usuario usuario) {
-        this.usuario = usuario;
+    public void setUsuario(long usuarioId) {
+        this.usuarioId = usuarioId;
     }
 
     public long getUsuarioId() {
