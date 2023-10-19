@@ -27,10 +27,6 @@ public class Controller {
     @Autowired
     private UsuarioRepository usuarioRepository;
 
-    @GetMapping("/")
-    public String Hello(){
-        return "Test Controller";
-    }
 
     private static final org.slf4j.Logger logger = LoggerFactory.getLogger(Controller.class);
 
